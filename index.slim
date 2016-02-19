@@ -1,0 +1,93 @@
+doctype html
+html lang="ja"
+  head
+    title Suica to MoneyForward
+
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    meta name="keywords" content="Suica,PaSoRi,MoneyForward,csv,SFCard Viewer,スイカ,パソリ,マネーフォワード"
+    meta name="description" content="Suicaの利用履歴ファイルをMoneyForward用に変換"
+    meta name="author" content="nalgami"
+
+    meta property="og:locale" content="ja_JP"
+    meta property="og:site_name" content="Suica for MoneyForward"
+    meta property="og:title" content="Suica for MoneyForward"
+    meta property="og:url" content="http://s2mf.backbones.jp"
+    meta property="og:description" content="Suicaの利用履歴ファイルをMoneyForward用に変換"
+    meta property="og:type" content="website"
+
+    meta name="twitter:card" content="summary"
+    meta name="twitter:site" content="@nalgami"
+    meta name="twitter:title" content="Suica for MoneyForward"
+    meta name="twitter:description" content="Suicaの利用履歴ファイルをMoneyForward用に変換"
+
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.min.js"
+    script src="FileSaver.min.js"
+    script src="application.js"
+
+    css:
+      .jumbotron {
+        background-color: transparent;
+      }
+
+      .big-btn {
+        padding: 14px 24px;
+        font-size: 21px;
+      }
+
+  body
+    javascript:
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m= s.getElementsByTagName(o)[0]; a.async=1; a.src=g;m.parentNode.insertBefore(a, m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36989724-6', 'auto');
+      ga('send', 'pageview');
+    .container
+      .jumbotron
+        #alert.alert.alert-danger.collapse role="alert"
+        .text-center
+          h1 Suica to MoneyForward
+          p.lead
+            a rel="nofollow" href="http://www.amazon.co.jp/gp/product/B00948CGAG/ref=as_li_tf_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B00948CGAG&linkCode=as2&tag=nalgami-22"
+              | PaSoRiとその付属ソフト「SFCard Viewer 2」
+            | を使って出力した交通系ICカードの利用履歴ファイルをMoneyForwardで読み込めるように変換します。
+        .form-horizontal
+          .form-group
+            label.col-xs-3.control-label for="bank"
+              | 金融機関名
+            .col-xs-9
+              input#bank.form-control type="text" placeholder="Suica"
+          .form-group.text-center
+            script async=1 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+            ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3623952714768421" data-ad-slot="4068603194" data-ad-format="auto"
+            javascript:
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          .form-group
+            .col-xs-offset-3.col-xs-9
+              .checkbox
+                label
+                  input#disable_transfers type="checkbox"
+                    | チャージを計算対象外にする
+            .col-xs-offset-3.col-xs-9
+              .checkbox
+                label
+                  input#disable_duplicates type="checkbox"
+                    | 前回変換したファイルと重複する項目を計算対象外にする
+                    br
+                    | Cookieが有効かつ、過去の時系列のファイルから変換しないと使えません
+          .form-group.text-center
+            input#input_file.hidden type="file" accept='.csv'
+            button#select_file.btn.btn-lg.btn-success.big-btn
+              | ファイルを選択
+        p
+          .small.text-center
+            | 作った人:&nbsp;
+            a href="https://twitter.com/nalgami"
+              | @nalgami

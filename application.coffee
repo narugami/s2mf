@@ -17,8 +17,8 @@ $ ->
     $('#select_file').prop 'disabled', true
   else
     $('#bank').val(Cookies.get('bank') ? 'Suica')
-    $('#disable_transfers').prop('checked', Cookies.get('disable_transfers') ? true)
-    $('#disable_duplicates').prop('checked', Cookies.get('disable_duplicates') ? true)
+    $('#disable_transfers').prop('checked', Cookies.get('disable_transfers') == 'true')
+    $('#disable_duplicates').prop('checked', Cookies.get('disable_duplicates') == 'true')
 
     $('#select_file').click ->
       $('#input_file').click()
@@ -73,7 +73,7 @@ $ ->
             price = -parseInt("#{row[7]}".split(',').join('').trim())
             transfer = price > 0
             enabled = !in_duplicates && !(disable_transfers && transfer)
-            bank = "Suica"
+            bank = $('#bank').val()
             date = "#{row[0]}"
             description = "#{row[2]}#{row[3]} #{row[5]}#{row[6]}".trim()
             memo = "#{row[9]}"

@@ -1,5 +1,5 @@
 ###
-[Suica to Moneyforward]
+[s2mf]
 
 Copyright (c) 2016 narugami
 Mail: narugami@backbones.jp

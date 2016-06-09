@@ -87,6 +87,7 @@ $ ->
               else if memo.indexOf('物販') >= 0
                 category = '食費'
                 section = 'その他食費'
+                description = '物販'
               else
                 category = '交通費'
                 section = '電車'
